@@ -1,6 +1,6 @@
 'use strict';
 
-const require 
+const winning = require ('./winning.js');
 
 // user require with a reference to bundle the file and use it in this file
 // var example = require('./example');
@@ -9,16 +9,19 @@ const require
 require('./example');
 
 
-let gridArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let gridArray = ['1', '2', '3', '4', '5', '6','7', '8', '9'];
 
-let getWinner = function() {
-    if (winnerX()) {
+
+// for (var i = 0; i < gridArray.length; i++) {
+//   gridArray[i]
+// } return player1()
+
+let getWinner = function(theWinner) {
+    if (player1(theWinner)) {
       return 'Player 1 Wins!';
-      console.log("Player 1 Wins!");
-    }
-    if (winnerO()) {
-      return 'Player O Wins!';
-      console.log("Player O Wins!");
-    }
-    return 'We have a Tie!';
-  };
+    } else if (player2(theWinner)) {
+      return 'Player 2 Wins!';
+    } else {
+    return 'We have a Tie Folks!';
+  }
+};
