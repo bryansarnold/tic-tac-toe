@@ -6,13 +6,14 @@
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script>
-      let setMessage = function (msg) {
+
+      let setMessage = function(msg) {
         document.getElementById("message").innerText = msg;
       };
 
       let startTurn = function(setMessage) {
         document.turn = "X";
-        setMessage(document.turn + "Gets to start first");
+        setMessage(document.turn + " gets to start first!");
       };
 
       let nextTurn = function(box) {
@@ -25,16 +26,47 @@
       };
 
       let switchTurn = function() {
-        if (document.turn == "X") {
-            document.turn = "0";
-        } else {
-          document.turn = "X";
+        // for (var i = 0; i < winningMove.length; i++) {
+        //   if
+          if (winningMove(document.turn)) {
+            setMessage("Congrats " + document.turn + " wins it!");
         }
-        setMessage("It's " + document.turn + "'s turn!")
+        } else if (document.turn == "O") {
+          // setMessage("It's " + document.turn + "'s turn!")
+          // document.turn = "O";
+
+        } else {
+          // setMessage("It's " + document.turn + "'s turn!")
+          document.turn = "X";
+
+        }
       }
 
-      let winningMove = function (a, b, c, move) {
+      let theWinner = function (a, b, c, move) {
         let result = false;
+        if (getBox(a) == move && getBox(b) == move && getBox(c) == move) {
+          result = true;
+        }
+        return result;
+      }
+
+      let winningMove = function(move) {
+        if (theWinner(1, 2, 3, move) ||
+            theWinner(4, 5, 6, move) ||
+            theWinner(7, 8, 9, move) ||
+            theWinner(1, 4, 7, move) ||
+            theWinner(2, 5, 8, move) ||
+            theWinner(3, 6, 9, move) ||
+            theWinner(1, 5, 9, move) ||
+            theWinner(3, 5, 7, move)); {
+
+          result = true;
+        }
+        return result;
+      }
+
+      let getBox = function(num) {
+        return document.getElementById("box" + num).innerText;
       }
 
       </script>
@@ -50,7 +82,7 @@
 
       </style>
     </head>
-    <body onload=startTurn();>
+    <body onload="startTurn();">
 
     <header>
       <h1>Tic-Tac-Match</h1>
@@ -59,24 +91,24 @@
       of the developers at General Assembly. Can it be done in 3 days. Right
     now it looks bleak. But there is a will to this way! Let's make it happen.
     *fingers crossed*</p>
-    <div id="message">Messages will go here</div>
+    <div id="message">Game starts now!</div>
 
     </div>
       <table border= 1>
         <tr>
-          <td class="box" onclick="nextTurn(this);"></td>
-          <td class="box" onclick="nextTurn(this);"></td>
-          <td class="box" onclick="nextTurn(this);"></td>
+          <td class="box" onclick="nextTurn(this);" id ="box1"></td>
+          <td class="box" onclick="nextTurn(this);" id ="box2"></td>
+          <td class="box" onclick="nextTurn(this);" id ="box3"></td>
         </tr>
         <tr>
-          <td class="box" onclick="nextTurn(this);"></td>
-          <td class="box" onclick="nextTurn(this);"></td>
-          <td class="box" onclick="nextTurn(this);"></td>
+          <td class="box" onclick="nextTurn(this);" id ="box4"></td>
+          <td class="box" onclick="nextTurn(this);" id ="box5"></td>
+          <td class="box" onclick="nextTurn(this);" id ="box6"></td>
         </tr>
         <tr>
-          <td class="box" onclick="nextTurn(this);"></td>
-          <td class="box" onclick="nextTurn(this);"></td>
-          <td class="box" onclick="nextTurn(this);"></td>
+          <td class="box" onclick="nextTurn(this);" id ="box7"></td>
+          <td class="box" onclick="nextTurn(this);" id ="box8"></td>
+          <td class="box" onclick="nextTurn(this);" id ="box9"></td>
         </tr>
       </table>
         </header>
