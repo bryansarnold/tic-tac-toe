@@ -9,36 +9,42 @@
 
       let setMessage = function(msg) {
         document.getElementById("message").innerText = msg;
-      };
+      }
 
-      let startTurn = function(setMessage) {
-        document.turn = "X";
+      let startGame = function(setMessage) {
+        for (var i = 0; i <= 9; i++) {
+          restartGame(i);
+        }
+            document.turn = "X";
+        if  (Math.random() < 0.5) {
+            document.turn = "O";
+        }
+            document.winner = null;
         setMessage(document.turn + " gets to start first!");
-      };
+      }
 
       let nextTurn = function(box) {
-        if (box.innerText === "") {
+        if (document.winner !== null) {
+            setMessage(document.winner + " already won!");
+        } else if (box.innerText === "") {
             box.innerText = document.turn;
-          switchTurn();
+            switchTurn();
         } else {
-          setMessage("Box is Taken");
+            setMessage("Box is Taken");
         }
-      };
+      }
 
       let switchTurn = function() {
-        // for (var i = 0; i < winningMove.length; i++) {
-        //   if
           if (winningMove(document.turn)) {
             setMessage("Congrats " + document.turn + " wins it!");
-        }
+            document.winner = document.turn;
         } else if (document.turn == "O") {
-          // setMessage("It's " + document.turn + "'s turn!")
-          // document.turn = "O";
+            setMessage("It's " + document.turn + "'s turn!")
+            document.turn = "O";
 
         } else {
-          // setMessage("It's " + document.turn + "'s turn!")
-          document.turn = "X";
-
+            document.turn = "X";
+            setMessage("It's " + document.turn + "'s turn!")
         }
       }
 
@@ -69,6 +75,10 @@
         return document.getElementById("box" + num).innerText;
       }
 
+      let restartGame(num) = {
+        document.getElementById("box" + num).innerText == "";
+      }
+
       </script>
       <style>
       .box {
@@ -82,7 +92,7 @@
 
       </style>
     </head>
-    <body onload="startTurn();">
+    <body onload="startGame();">
 
     <header>
       <h1>Tic-Tac-Match</h1>
@@ -111,6 +121,7 @@
           <td class="box" onclick="nextTurn(this);" id ="box9"></td>
         </tr>
       </table>
+      <a href = "javascript: startGame();" name="restart">Restart</a>
         </header>
     </body>
 </html>
