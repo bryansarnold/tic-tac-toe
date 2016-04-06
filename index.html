@@ -5,8 +5,52 @@
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+      <script>
+      let setMessage = function (msg) {
+        document.getElementById("message").innerText = msg;
+      };
+
+      let startTurn = function(setMessage) {
+        document.turn = "X";
+        setMessage(document.turn + "Gets to start first");
+      };
+
+      let nextTurn = function(box) {
+        if (box.innerText === "") {
+            box.innerText = document.turn;
+          switchTurn();
+        } else {
+          setMessage("Box is Taken");
+        }
+      };
+
+      let switchTurn = function() {
+        if (document.turn == "X") {
+            document.turn = "0";
+        } else {
+          document.turn = "X";
+        }
+        setMessage("It's " + document.turn + "'s turn!")
+      }
+
+      let winningMove = function (a, b, c, move) {
+        let result = false;
+      }
+
+      </script>
+      <style>
+      .box {
+        width: 125px;
+        height: 125px;
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        font-family: verdana;
+        }
+
+      </style>
     </head>
-    <body class="container-fluid">
+    <body onload=startTurn();>
 
     <header>
       <h1>Tic-Tac-Match</h1>
@@ -15,38 +59,26 @@
       of the developers at General Assembly. Can it be done in 3 days. Right
     now it looks bleak. But there is a will to this way! Let's make it happen.
     *fingers crossed*</p>
+    <div id="message">Messages will go here</div>
 
-    <div class="container">
-
-          <div class="box-one">
-            <button type="button" name="button"></button>
-          </div>
-          <div class="box-two">
-            <button type="button" name="button"></button>
-          </div>
-          <div class="box-three">
-            <button type="button" name="button"></button>
-          </div>
-          <div class="box-four">
-            <button type="button" name="button"></button>
-          </div>
-          <div class="box-five">
-            <button type="button" name="button"></button>
-          </div>
-          <div class="box-six">
-            <button type="button" name="button"></button>
-          </div>
-          <div class="box-seven">
-            <button type="button" name="button"></button>
-          </div>
-          <div class="box-eight">
-            <button type="button" name="button"></button>
-          </div>
-          <div class="box-nine">
-            <button type="button" name="button"></button>
-          </div>
-          <button type="button" name="button"></button>
-        </div>
+    </div>
+      <table border= 1>
+        <tr>
+          <td class="box" onclick="nextTurn(this);"></td>
+          <td class="box" onclick="nextTurn(this);"></td>
+          <td class="box" onclick="nextTurn(this);"></td>
+        </tr>
+        <tr>
+          <td class="box" onclick="nextTurn(this);"></td>
+          <td class="box" onclick="nextTurn(this);"></td>
+          <td class="box" onclick="nextTurn(this);"></td>
+        </tr>
+        <tr>
+          <td class="box" onclick="nextTurn(this);"></td>
+          <td class="box" onclick="nextTurn(this);"></td>
+          <td class="box" onclick="nextTurn(this);"></td>
+        </tr>
+      </table>
         </header>
     </body>
 </html>

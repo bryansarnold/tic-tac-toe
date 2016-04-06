@@ -9,19 +9,24 @@ const winning = require ('./winning.js');
 require('./example');
 
 
-let gridArray = ['1', '2', '3', '4', '5', '6','7', '8', '9'];
+
+let setMessage = function (msg) {
+  document.getElementById("message").innerText = msg;
+};
+
+let startTurn = function(setMessage) {
+  document.turn = "X";
+  setMessage(document.turn + "Gets to start first");
+};
+
+let nextTurn = function(box) {
+  box.innerText = document.turn;
+};
 
 
-// for (var i = 0; i < gridArray.length; i++) {
-//   gridArray[i]
-// } return player1()
 
-let getWinner = function(theWinner) {
-    if (player1(theWinner)) {
-      return 'Player 1 Wins!';
-    } else if (player2(theWinner)) {
-      return 'Player 2 Wins!';
-    } else {
-    return 'We have a Tie Folks!';
-  }
+module.exports = {
+  setMessage,
+  startTurn,
+  nextTurn,
 };

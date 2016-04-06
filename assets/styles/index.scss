@@ -1,2 +1,9 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+$color: #00ff
+
+table {
+  border: 10;
+  padding-left: 5px;
+  background-color: blue($color);
+}
