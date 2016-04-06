@@ -5,31 +5,19 @@
 
       <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <style>
-      .box {
-        width: 125px;
-        height: 125px;
-        text-align: center;
-        font-size: 30px;
-        font-weight: bold;
-        font-family: verdana;
-        }
 
-      </style>
     </head>
-    <body onload="startGame();">
+    <body>
 
     <header>
       <h1>Tic-Tac-Match</h1>
 
-      <p>The goal is create a Tic-Tac-Toe game off the brilliant teachings
-      of the developers at General Assembly. Can it be done in 3 days. Right
-    now it looks bleak. But there is a will to this way! Let's make it happen.
-    *fingers crossed*</p>
+      <p>It's the classic Tic-Tac-Toe game. Nobody wins unless you're
+      truly not paying attention.</p>
     <div id="message">Game starts now!</div>
 
     </div>
-      <table border= 2>
+      <table class="main-box">
         <tr>
           <td class="box" onclick="nextTurn(this);" id ="box1"></td>
           <td class="box" onclick="nextTurn(this);" id ="box2"></td>
