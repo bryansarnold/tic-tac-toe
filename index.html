@@ -7,10 +7,34 @@
       <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
 
     </head>
-    <body>
+    <body class="container-fluid">
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign up</legend>
+          <input type="text" name="credentials[email]" placeholder="email">
+          <input type="password" name="credentials[password]" placeholder="password">
+          <input type="submit" name="submit" value="Sign up">
+        </fieldset>
+      </form>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign in</legend>
+          <input type="text" name="credentials[email]" value="email">
+          <input type="password" name="credentials[password]" value="password">
+          <input type="submit" name="submit" value="Sign in">
+        </fieldset>
+      </form>
+      <form id="sign-out">
+        <fieldset>
+          <legend>Sign out</legend>
+          <input type="text" name="credentials[email]" value="email">
+          <input type="password" name="credentials[password]" value="password">
+          <input type="submit" name="submit" value="Sign out">
+        </fieldset>
+    </form>
 
     <header>
-      <h1>Tic-Tac-Match</h1>
+      <h1>Tic-Tac-Toe</h1>
 
       <p>It's the classic Tic-Tac-Toe game. Nobody wins unless you're
       truly not paying attention.</p>
@@ -19,22 +43,21 @@
     </div>
       <table class="main-box">
         <tr>
-          <td class="box" onclick="nextTurn(this);" id ="box1"></td>
-          <td class="box" onclick="nextTurn(this);" id ="box2"></td>
-          <td class="box" onclick="nextTurn(this);" id ="box3"></td>
+          <td class="box" id ="box1"></td>
+          <td class="box" id ="box2"></td>
+          <td class="box" id ="box3"></td>
         </tr>
         <tr>
-          <td class="box" onclick="nextTurn(this);" id ="box4"></td>
-          <td class="box" onclick="nextTurn(this);" id ="box5"></td>
-          <td class="box" onclick="nextTurn(this);" id ="box6"></td>
+          <td class="box" id ="box4"></td>
+          <td class="box" id ="box5"></td>
+          <td class="box" id ="box6"></td>
         </tr>
         <tr>
-          <td class="box" onclick="nextTurn(this);" id ="box7"></td>
-          <td class="box" onclick="nextTurn(this);" id ="box8"></td>
-          <td class="box" onclick="nextTurn(this);" id ="box9"></td>
+          <td class="box" id ="box7"></td>
+          <td class="box" id ="box8"></td>
+          <td class="box" id ="box9"></td>
         </tr>
       </table>
-      <a href = "javascript: startGame();" name="restart">Restart</a>
         </header>
     </body>
 </html>

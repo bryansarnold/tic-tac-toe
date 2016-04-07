@@ -8,9 +8,28 @@ table {
   padding-left: 5px;
 }
 
+form  {
+  float: left;
+  display: inline;
+  padding: inherit;
+}
+
+
+legend {
+  float:  left;;
+  font-size: 4;
+}
+
+h1 {
+  font-weight: 20;
+  clear: both;
+}
+
 .box {
-  border: 2px solid;
-  font-family: verdana;
+  background-color: tan;
+  padding: 5;
+  border: 5px;
+  border-radius: 60px;
   font-size: 30px;
   font-weight: bold;
   height: 125px;
