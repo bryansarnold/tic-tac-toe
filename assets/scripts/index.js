@@ -6,84 +6,66 @@
 // var example = require('./example');
 
 // use require without a reference to ensure a file is bundled
-// require('./example');
+require('./users.js');
+//
+//
+// let threeInARow = [[1,2,3],[4,5,6],[7,8,9]];
+//
+// let threeInACol = [[1,4,7],[2,5,8],[3,6,9]];
+//
+// let threeInADiag = [[1,5,9],[3,5,7]];
+//
+// let gridArray = [1, 2, 3],
+//                 [4, 5, 6],
+//                 [8, 9, 10];
+//
+let gameBoard = $()
 
 
-const setMessage = function(msg) {
-  document.getElementById("message").innerText = msg;
-  // $("#message").text(msg)
+
+
+const firstTurn = function () {
+  $(".box").click(function(){
+   $(this).text("X");
+  });
 };
 
-const startGame = function(setMessage) {
-  document.turn = "X";
-  document.winner = null;
-  setMessage(document.turn + " gets to start first!");
+const nextTurn = function()  {
+  $(".box").click(function(){
+   $(this).text("O");
+ });
 };
 
-const winningMove = function(move) {
-  let result;
-  let theWinner;
-  if (theWinner(1, 2, 3, move) ||
-      theWinner(4, 5, 6, move) ||
-      theWinner(7, 8, 9, move) ||
-      theWinner(1, 4, 7, move) ||
-      theWinner(2, 5, 8, move) ||
-      theWinner(3, 6, 9, move) ||
-      theWinner(1, 5, 9, move) ||
-      theWinner(3, 5, 7, move)) {
-        result = true;
-    }
-    return result;
-  };
+playerOneMove = function (firstTurn) {
+  
+};
 
+// let threeInARow = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]];
+
+// WinningMove = function () {
+//
+// }
+//
+// WinningMoveCheck = function() {
+//   if
 // }
 
-const nextTurn = function(box) {
-  let switchTurn;
-  if (document.winner !== null) {
-    setMessage(document.winner + " already won!");
-  } else if (box.innerText === "") {
-      box.innerText = document.turn;
-    switchTurn();
-  } else {
-    setMessage("Box is Taken");
-  }
-};
 
-const switchTurn = function() {
-    if (winningMove(document.turn)) {
-      setMessage("Congrats " + document.turn + " wins it!");
-      document.winner = document.turn;
-  } else if (document.turn === "O") {
-    setMessage("It's " + document.turn + "'s turn!");
-    document.turn = "O";
+// const gameBoard = box1 = null,
 
-  } else {
-    document.turn = "X";
-    setMessage("It's " + document.turn + "'s turn!");
-  }
-};
+//
+// const startGame = function() {
+//   document.turn = "X";
+//   document.winner = null;
+//   $('#message').click(function(){
+//    return (document.turn + " gets to start first!");
+//   }
+// });
 
-const getBox = function(num) {
-  return document.getElementById("box" + num).innerText;
-};
 
-const theWinner = function (a, b, c, move) {
-  let result = false;
-  if (getBox(a) === move && getBox(b) === move && getBox(c) === move) {
-    result = true;
-  }
-  return result;
-};
 
-$(document).ready(function(){
-  //code here
-});
 
-module.exports = {
-  setMessage,
-  startGame,
-  switchTurn,
-  nextTurn,
-  theWinner
-};
+
+// module.exports = {
+//
+// };
