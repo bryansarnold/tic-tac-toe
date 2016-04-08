@@ -12,44 +12,58 @@ require('./auth/events.js');
 //
 const boxArray = [$("#box1"), $("#box2"), $("#box3"), $("#box4"), $("#box5"), $("#box6"), $("#box7"), $("#box8"), $("#box9")];
 
-const threeInARow = [[$("#box1"), $("#box2"), $("#box3")],[$("#box4"), $("#box5"), $("#box6")],[$("#box7"), $("#box8"), ("$#box9")]];
+const threeInATopRow = [[$("#box1"), $("#box2"), $("#box3")];
 
-const threeInACol = [[$("#box1"), $("#box4"), $("#box7")],[$("#box2"), $("#box5"), $("#box8")],[$("#box3"),$("#box6"), ("$.box9")]];
+const threeInAMiddleRow = [$("#box4"), $("#box5"), $("#box6")];
 
-const threeInADiag = [[$("#box1"),$("#box5"),$("#box9")],[$("#box3"),$("#box5"),$("#box9")]];
+const threeInABottomRow$ = [("#box7"), $("#box8"), ("$#box9")]];
 
-const winningMoveCheck = function(threeInARow, threeInACol, threeInADiag) {
-  if (threeInARow === "X" || threeInACol === "X" || threeInADiag === "X") {
-    return "X wins!";
-  } else if (threeInARow === "O" || threeInACol === "O" || threeInADiag === "O") {
-    return "O wins!";
+const threeInAFirstCol = [[$("#box1"), $("#box4"), $("#box7")];
+
+const threeInASecondCol = [$("#box2"), $("#box5"), $("#box8")];
+
+const threeInAThirdCol = [$("#box3"),$("#box6"), ("$.box9")]];
+
+const threeInAFirstDiag = [[$("#box1"),$("#box5"),$("#box9")];
+
+const threeInASecondDiag = [$("#box3"),$("#box5"),$("#box7")]];
+
+let gridDisplay = [" ", " ", " ", " ", " ", " ",]
+let player = ['X', 'O'];
+let currentPlayer = null;
+let move = 0;
+let winningMove = false;
+let tie = false;
+
+const winningMoveCheck = function() {
+  if (threeInATopRow ===    [$("#box1"), $("#box2"), $("#box3")] ||
+      threeInAMiddleRow === [$("#box4"), $("#box5"), $("#box6")] ||
+      threeInABottomRow === [$("#box7"), $("#box8"), $("#box9")] ||
+      threeInAFirstCol === [$("#box1"), $("#box4"), $("#box7")]  ||
+      threeInASecondCol === [$("#box2"), $("#box5"), $("#box8")] ||
+      threeInAThirdCol === [$("#box3"), $("#box6"), $("#box9")]  ||
+      threeInAFirstDiag === [$("#box1"), $("#box5"), $("#box9")] ||
+      threeInASecondDiag === [$("#box3"), $("#box5"), $("#box7")]) {
+      winningMove = true;
+}
+
+const tieCheck = function (move) {
+    for (let i = 1; i >= 9; i++) {
+          tie = true;
+          console.log("It's a Tie! Didn't see that coming!");
   }
 };
 
-const tieCheck = function () {
-    for (var i = 1; i < 10; i++) {
-      if (threeInARow !== "X" || threeInACol !== "X" || threeInADiag !== "X") {
-        return "It's a Tie! Say it Aint So!";
-      } else if (threeInARow !== "O" || threeInACol !== "O" || threeInADiag !== "O") {
-        return "It's a Tie! Didn't see that coming!";
-    }
-  }
-};
-// $(() => {
+const currentTurn = function() {
+  $(".boxArray").one('click', function(   if(move / 2 === O) {
 
-// const firstTurn = function () {
-$("#boxArray").click(function(){
-   $(this).text("X");
+   }}
+     currentPlayer = player[0];
+   } else {
+     currentPlayer = player[1];
+   }
  });
-//   return this;
-// };
-
-const nextTurn = function()  {
-  $(".boxArray").click(function(){
-   $(this).text("O");
- });
- return this;
-};
+turn++;
 
 $('#sign-up').on('submit', function(event){
   event.preventDefault();

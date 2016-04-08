@@ -3,7 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields');
 const authApi = require('./api');
 // const authUi = require('./ui');
-// debugger;
+
 const addHandlers = () => {
   $('#sign-up').on('submit', function (event) {
     let data = getFormFields(this);
