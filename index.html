@@ -1,63 +1,61 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Tic-Tac-Match</title>
 
-      <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
+<head>
+  <title>Tic-Tac-Match</title>
 
-    </head>
-    <body class="container-fluid">
-      <form id="sign-up">
-        <fieldset>
-          <legend>Sign up</legend>
-          <input type="text" name="credentials[email]" placeholder="email">
-          <input type="password" name="credentials[password]" placeholder="password">
-          <input type="submit" name="submit" value="Sign up">
-        </fieldset>
-      </form>
-      <form id="sign-in">
-        <fieldset>
-          <legend>Sign in</legend>
-          <input type="text" name="credentials[email]" value="email">
-          <input type="password" name="credentials[password]" value="password">
-          <input type="submit" name="submit" value="Sign in">
-        </fieldset>
-      </form>
-      <form id="sign-out">
-        <fieldset>
-          <legend>Sign out</legend>
-          <input type="text" name="credentials[email]" value="email">
-          <input type="password" name="credentials[password]" value="password">
-          <input type="submit" name="submit" value="Sign out">
-        </fieldset>
-    </form>
+  <script src="vendor.bundle.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="bundle.js" type="text/javascript" charset="utf-8" defer></script>
 
-    <header>
-      <h1>Tic-Tac-Toe</h1>
+</head>
 
-      <p>It's the classic Tic-Tac-Toe game. Nobody wins unless you're
-      truly not paying attention.</p>
-    <div id="message">Game starts now!</div>
+<body class="container-fluid">
+  <form id="sign-up">
+    <legend>Sign up</legend>
+    <input name="credentials[email]" type="text" value="email">
+    <input name="credentials[password]" type="password" value="password">
+    <input type="submit" name="submit" value="Sign up">
+  </form>
 
-    </div>
-      <table class="main-box">
-        <tr>
-          <td class="box" id ="box1"></td>
-          <td class="box" id ="box2"></td>
-          <td class="box" id ="box3"></td>
-        </tr>
-        <tr>
-          <td class="box" id ="box4"></td>
-          <td class="box" id ="box5"></td>
-          <td class="box" id ="box6"></td>
-        </tr>
-        <tr>
-          <td class="box" id ="box7"></td>
-          <td class="box" id ="box8"></td>
-          <td class="box" id ="box9"></td>
-        </tr>
-      </table>
-        </header>
-    </body>
+  <form id="sign-in">
+      <legend>Sign in</legend>
+      <input type="text" name="credentials[email]" value="email">
+      <input type="password" name="credentials[password]" value="password">
+      <input type="submit" name="submit" value="Sign in">
+  </form>
+  <form id="sign-out">
+      <legend>Sign out</legend>
+      <input type="text" name="credentials[email]" value="email">
+      <input type="password" name="credentials[password]" value="password">
+      <input type="submit" name="submit" value="Sign out">
+  </form>
+  <form id="change-password">
+      <legend>Change password</legend>
+      <input type="text" name="credentials[email]" value="email">
+      <input type="password" name="credentials[password]" value="create new password">
+      <input type="submit" name="submit" value="Change password here">
+  </form>
+  <header>
+    <h1>Tic-Tac-Toe</h1>
+
+    <table class="main-box">
+      <tr>
+        <td class="box" data-cell="box1"></td>
+        <td class="box" data-cell="box2"></td>
+        <td class="box" data-cell="box3"></td>
+      </tr>
+      <tr>
+        <td class="box" data-cell="box4"></td>
+        <td class="box" data-cell="box5"></td>
+        <td class="box" data-cell="box6"></td>
+      </tr>
+      <tr>
+        <td class="box" data-cell="box7"></td>
+        <td class="box" data-cell="box8"></td>
+        <td class="box" data-cell="box9"></td>
+      </tr>
+    </table>
+  </header>
+</body>
+
 </html>

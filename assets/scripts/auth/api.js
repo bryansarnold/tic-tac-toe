@@ -1,42 +1,55 @@
 'use strict';
 
-const app = require('./app-data');
+const app = require('./app-data.js');
 
-const signUp = (success, failure, form) => {
+const signUp = (success, failure, data) => {
   $.ajax({
-    METHOD: 'POST',
+    method: 'POST',
     url: app.api + '/sign-up',
-    data,
-  }).done(success)
-  .fail(failure);
-  // Math.random() > 0.5 ? success('in signUp') : failure(data);
+    data
+  }).done(success).fail(failure);
 };
 
-const signIn = (success, failure, form) => {
+
+const signIn = (success, failure, data) => {
   $.ajax({
-    METHOD: 'POST',
-    url: app.api + '/sign-up',
+    method: 'POST',
+    url: app.api + '/sign-in',
     data,
+    // ? use the back slash or not on sign-in
   }).done(success)
   .fail(failure);
-  // Math.random() > 0.5 ? success('in signUp') : failure(data);
 };
 
 const signOut = (success, failure) => {
+  console.log("Sign out confirmed");
   $.ajax({
-    METHOD: 'DELETE',
-    url: app.api + '/sign-out' + app.user.id,
+    method: 'DELETE',
+    url: app.api + '/sign-out/' + app.user.id,
     headers: {
       Authorization: 'Token token=' + app.user.token,
+    },
+    //why place a comma after curly braces
+  }).done(success)
+  .fail(failure);
+};
+
+const changePassword = (success, failure, data) => {
+  $.ajax({
+    method: 'PATCH',
+    url: app.api + '/change-password/' + app.user.id, data,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+      // ? what is up with the token-token thing
     }
   }).done(success)
   .fail(failure);
-  // Math.random() > 0.5 ? success('in signUp') : failure(data);
 };
 
 
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  changePassword
 };
