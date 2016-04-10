@@ -3,7 +3,6 @@
 const app = require('./app-data.js');
 
 const index = (success, failure) => {
-  console.log("Get games request queued");
   $.ajax({
     method: 'GET',
     url: app.api + '/games',
@@ -14,7 +13,6 @@ const index = (success, failure) => {
 };
 
 const create = (success, failure) => {
-  console.log("Create new game request queued");
   $.ajax({
     method: 'POST',
     url: app.api + '/games',
@@ -25,7 +23,6 @@ const create = (success, failure) => {
 };
 
 const update = (success, failure, data) => {
-  console.log("Update game request queued");
   $.ajax({
     method: 'PATCH',
     url: app.api + '/games/' + app.game.id,
